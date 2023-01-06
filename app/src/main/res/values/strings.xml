@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ListDemo</string>
+
+    <string name="no_internet">No Internet</string>
+    <string name="something_went_wrong">Something Went Wrong</string>
+    <string name="session_expired">Session Expired! Please login again!</string>
+    <string name="ok">OK</string>
+
+    <string name="error_500">500 Internal Server Error</string>
+    <string name="error_400">400 Bad Request</string>
+    <!--    <string name="error_401">401 Unauthorized</string>-->
+    <string name="error_401">401 Unauthorized</string>
+    <string name="error_403">403 Forbidden</string>
+    <string name="error_404">404 Not Found</string>
+    <string name="error_502">502 Bad Gateway</string>
+    <string name="error_401_relogin">relogin</string>
+
 </resources>
