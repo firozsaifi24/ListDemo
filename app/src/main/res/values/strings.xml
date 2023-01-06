@@ -15,4 +15,6 @@
     <string name="error_502">502 Bad Gateway</string>
     <string name="error_401_relogin">relogin</string>
 
+    <string name="google">Google</string>
+
 </resources>
