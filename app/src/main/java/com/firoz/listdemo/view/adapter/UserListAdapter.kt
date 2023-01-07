@@ -1,4 +1,4 @@
-package com.firoz.listdemo.adapter
+package com.firoz.listdemo.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
