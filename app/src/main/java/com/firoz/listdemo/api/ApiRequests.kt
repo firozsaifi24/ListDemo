@@ -15,6 +15,6 @@ interface ApiRequests {
     suspend fun getUserDataList(
         @Query(FIELD.PAGE) page: Int,
         @Query(FIELD.LIMIT) limit: Int,
-        ): UserDataResponse
+        ): List<UserDataResponse>
 
 }
