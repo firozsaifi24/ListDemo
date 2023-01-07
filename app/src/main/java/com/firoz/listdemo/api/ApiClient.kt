@@ -11,11 +11,6 @@ import java.util.concurrent.TimeUnit
 @SuppressLint("StaticFieldLeak")
 object ApiClient {
 
-    //dev server
-    private const val BASE_URL = "https://dubaipoliceapidev.iworklab.com/v1/"
-    //client staging server
-   //private const val BASE_URL = "https://dubaipoliceapistage.iworklab.com/v1/"
-
     private lateinit var apiRequest: ApiRequests
     private lateinit var mContext: Context
     fun init(
