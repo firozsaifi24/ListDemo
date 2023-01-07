@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.firoz.listdemo.databinding.ItemUsersBinding
 import com.firoz.listdemo.model.UserDataResponse
+import com.firoz.listdemo.utils.Utils
 
 internal class UserListAdapter(
     private val mContext: Context,
@@ -32,6 +33,9 @@ internal class UserListAdapter(
         fun bind(user: UserDataResponse?) {
             user?.let {
                 binding.tvName.text = user.author
+                binding.layoutMain.setOnClickListener {
+                    Utils.showToast(mContext, user.author!!)
+                }
             }
         }
     }
