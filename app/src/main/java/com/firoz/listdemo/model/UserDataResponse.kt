@@ -2,7 +2,7 @@ package com.firoz.listdemo.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MyDataResponse (
+data class UserDataResponse (
     @SerializedName("id") var id : String? = null,
     @SerializedName("author") var author : String? = null,
     @SerializedName("width") var width : Int? = null,

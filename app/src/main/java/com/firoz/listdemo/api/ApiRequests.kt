@@ -1,6 +1,6 @@
 package com.firoz.listdemo.api
 
-import com.firoz.listdemo.model.MyDataResponse
+import com.firoz.listdemo.model.UserDataResponse
 import retrofit2.http.*
 
 interface ApiRequests {
@@ -12,9 +12,9 @@ interface ApiRequests {
     }
 
     @GET("v2/list")
-    suspend fun getDataList(
+    suspend fun getUserDataList(
         @Query(FIELD.PAGE) page: Int,
         @Query(FIELD.LIMIT) limit: Int,
-        ): MyDataResponse
+        ): UserDataResponse
 
 }
