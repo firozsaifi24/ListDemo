@@ -1,7 +1,9 @@
 package com.firoz.listdemo.view.activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.firoz.listdemo.R
@@ -15,18 +17,21 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
+    private lateinit  var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        mContext = this
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        submitUserList()
+        swipeRefresh()
+        getUserList()
 
     }
 
-    private fun submitUserList() {
+    private fun getUserList() {
         val userListAdapter = UserListAdapter(this)
         binding.recyclerView.adapter = userListAdapter.withLoadStateHeaderAndFooter(
             header = CommonLoadStateAdapter {userListAdapter.retry()},
@@ -48,6 +53,21 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             execute()
         }
+    }
+
+    /**
+     * This function is used to refresh the page
+     * by swiping from top to down/pull down to refresh
+     */
+    private fun swipeRefresh() {
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.swipeRefreshLayout.isRefreshing = false
+            //your code on swipe refresh
+            getUserList()
+        }
+        binding.swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.purple_200))
+
     }
 
 }
