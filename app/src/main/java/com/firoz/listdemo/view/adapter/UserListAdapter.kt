@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firoz.listdemo.databinding.ItemUsersBinding
 import com.firoz.listdemo.model.UserDataResponse
 import com.firoz.listdemo.utils.Utils
@@ -33,6 +35,7 @@ internal class UserListAdapter(
         fun bind(user: UserDataResponse?) {
             user?.let {
                 binding.tvName.text = user.author
+                Glide.with(mContext).load(user.downloadUrl).into(binding.ivPic)
                 binding.layoutMain.setOnClickListener {
                     Utils.showToast(mContext, user.author!!)
                 }
