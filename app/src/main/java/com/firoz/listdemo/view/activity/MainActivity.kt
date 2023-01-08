@@ -3,20 +3,22 @@ package com.firoz.listdemo.view.activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.firoz.listdemo.R
 import com.firoz.listdemo.databinding.ActivityMainBinding
 import com.firoz.listdemo.view.adapter.CommonLoadStateAdapter
 import com.firoz.listdemo.view.adapter.UserListAdapter
 import com.firoz.listdemo.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit  var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mContext = this
-        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         swipeRefresh()
         getUserList()

@@ -9,8 +9,11 @@ import androidx.paging.liveData
 import com.firoz.listdemo.api.ApiClient
 import com.firoz.listdemo.datastore.UsersDataSource
 import com.firoz.listdemo.model.UserDataResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor() : ViewModel() {
 
     fun getUsersFlow(): LiveData<PagingData<UserDataResponse>> {
         val config = PagingConfig(pageSize = 10, enablePlaceholders = true)
